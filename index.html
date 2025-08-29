@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objectifs Nutritionnels</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: white;
+            padding: 15px;
+            min-width: 700px;
+            overflow-x: auto;
+        }
+
+        .dashboard-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            min-width: 680px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 25px;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            border-radius: 15px;
+            color: white;
+        }
+
+        .header-title {
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header-subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .goals-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr 1fr;
+            gap: 15px;
+            align-items: stretch;
+            min-width: 630px;
+        }
+
+        .goal-card {
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e9ecef;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 120px;
+        }
+
+        .goal-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .calories-card {
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            color: white;
+        }
+
+        .proteins-card {
+            background: linear-gradient(135deg, #fd79a8, #e84393);
+            color: white;
+        }
+
+        .lipids-card {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+        }
+
+        .carbs-card {
+            background: linear-gradient(135deg, #fdcb6e, #e17055);
+            color: white;
+        }
+
+        .goal-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .goal-value {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .goal-label {
+            font-size: 12px;
+            opacity: 0.9;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .goal-note {
+            font-size: 11px;
+            opacity: 0.8;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Animations */
+        .dashboard-container {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .goal-card {
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                min-width: auto;
+                padding: 10px;
+            }
+            
+            .dashboard-container {
+                min-width: auto;
+                padding: 20px;
+            }
+            
+            .goals-grid {
+                grid-template-columns: 1fr;
+                min-width: auto;
+                gap: 15px;
+            }
+            
+            .goal-card {
+                min-height: 100px;
+                padding: 18px;
+            }
+            
+            .goal-icon {
+                font-size: 20px;
+                margin-bottom: 8px;
+            }
+            
+            .goal-value {
+                font-size: 18px;
+            }
+            
+            .header-title {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .goals-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="dashboard-header">
+            <div class="header-title">
+                <span>🎯</span>
+                <span>Tes Objectifs</span>
+            </div>
+            <div class="header-subtitle">Tableau de bord nutritionnel personnalisé</div>
+        </div>
+
+        <div class="goals-grid">
+            <div class="goal-card calories-card">
+                <span class="goal-icon">📊</span>
+                <div class="goal-value">2300 - 2400<br>Kcal</div>
+                <div class="goal-label">Calories par jour</div>
+                <div class="goal-note">En fonction de l'activité</div>
+            </div>
+
+            <div class="goal-card proteins-card">
+                <span class="goal-icon">🥩</span>
+                <div class="goal-value">110 - 120g</div>
+                <div class="goal-label">Protéines</div>
+                <div class="goal-note">par jour</div>
+            </div>
+
+            <div class="goal-card lipids-card">
+                <span class="goal-icon">🥑</span>
+                <div class="goal-value">75 - 80g</div>
+                <div class="goal-label">Lipides</div>
+                <div class="goal-note">par jour</div>
+            </div>
+
+            <div class="goal-card carbs-card">
+                <span class="goal-icon">🍞</span>
+                <div class="goal-value">270 - 280g</div>
+                <div class="goal-label">Glucides</div>
+                <div class="goal-note">par jour</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animation séquentielle des cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const goalCards = document.querySelectorAll('.goal-card');
+            
+            goalCards.forEach((card, index) => {
+                card.style.animationDelay = `${0.2 + (index * 0.15)}s`;
+            });
+
+            // Animation de pulsation légère pour l'interaction
+            goalCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
